@@ -15,6 +15,7 @@ public class Main {
                 {"11","11","00","00","00","00","00","00","00","11","11"},
                 {"11","11","11","11","11","11","11","11","11","11","11"},
         };
+        System.out.println("Normal - photo");
         for (int i = 0; i < cat.length; i++) {
             for (int j = 0; j < cat[i].length; j++){
                 System.out.printf(cat[i][j]);
@@ -22,7 +23,11 @@ public class Main {
             System.out.println();
         }
 
+
         String[][] catRotate = rotate(cat);
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("Rotate - photo");
         System.out.println(" ");
         for (int i = 0; i < catRotate.length; i++) {
             for (int j = 0; j < catRotate[i].length; j++){
@@ -31,7 +36,22 @@ public class Main {
             System.out.println();
         }
 
+        String[][] catFlip = flip(cat);
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("Flip vertical - photo");
+        System.out.println(" ");
+        for (int i = 0; i < catFlip.length; i++) {
+            for (int j = 0; j < catFlip[i].length; j++){
+                System.out.printf(catFlip[i][j]);
+            }
+            System.out.println();
+        }
+
         String[][] catTrans = transpose(cat);
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("Transpose - photo");
         System.out.println(" ");
         for (int i = 0; i < catTrans.length; i++) {
             for (int j = 0; j < catTrans[i].length; j++){
@@ -39,9 +59,6 @@ public class Main {
             }
             System.out.println();
         }
-
-
-
     }
 
     public static String[][] rotate(String[][] catRotate){
@@ -53,6 +70,18 @@ public class Main {
             }
         }
         return rotate;
+    }
+
+    public static String[][] flip(String[][] catFlip){
+        int n = catFlip.length;
+        String[][] flip = new String[n][n];
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                flip[i*-1+catFlip.length-1][j] = catFlip[i][j];
+
+            }
+        }
+        return flip;
     }
 
 
