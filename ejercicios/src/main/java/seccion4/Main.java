@@ -22,6 +22,15 @@ public class Main {
             System.out.println();
         }
 
+        String[][] catRotate = rotate(cat);
+        System.out.println(" ");
+        for (int i = 0; i < catRotate.length; i++) {
+            for (int j = 0; j < catRotate[i].length; j++){
+                System.out.printf(catRotate[i][j]);
+            }
+            System.out.println();
+        }
+
         String[][] catTrans = transpose(cat);
         System.out.println(" ");
         for (int i = 0; i < catTrans.length; i++) {
@@ -31,18 +40,31 @@ public class Main {
             System.out.println();
         }
 
+
+
+    }
+
+    public static String[][] rotate(String[][] catRotate){
+        int n = catRotate.length;
+        String[][] rotate = new String[n][n];
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                rotate[j*-1+catRotate.length-1][i] = catRotate[i][j];
+            }
+        }
+        return rotate;
     }
 
 
-    public static String[][] transpose(String[][] rotate){
-        int n = rotate.length;
+    public static String[][] transpose(String[][] catTrans){
+        int n = catTrans.length;
         String[][] trans = new String[n][n];
         for (int i = 0; i < n; i++){
             for (int j = 0; j < n; j++){
-                trans[j][i] = rotate[i][j];
+                trans[j][i] = catTrans[i][j];
             }
         }
         return trans;
     }
-    
+
 }
